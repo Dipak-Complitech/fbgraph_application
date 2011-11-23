@@ -1,0 +1,10 @@
+<div class="temp_avatar">
+  <%= form_for TempPhoto.new, :url => {:controller => "temp_photos", :action => "create"}, :html => { :multipart => true} do |f| %>
+    <div class="fileInputs">
+        <%= f.hidden_field :key, :value => user.id %>
+      	<%= f.file_field :image, :id => 'avatar_input', :class => 'file' -%>
+      	
+      	<%= f.submit %>
+    </div>
+  <% end %>
+</div>

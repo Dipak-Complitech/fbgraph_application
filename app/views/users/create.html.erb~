@@ -1,0 +1,11 @@
+<%= form_for(@user, :html => { :multipart => true} do |f| %>
+  <div class="field">
+    Post Photo On Facebook : <br/>
+       <%= f.text_field :status %><br />
+       <%= f.submit "Post"%>
+  </div>
+      
+  
+
+<% end %>
+<%= hidden_field_tag 'access', @access_token %>

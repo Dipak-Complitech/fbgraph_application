@@ -1,0 +1,5 @@
+<h3><%= link_to "1. Create Album", "/fbalbum?access_token=#{@access_token}" %></h3><br/>
+<h3><%= link_to "2. Post Image", "/fbpostimage?access_token=#{@access_token}" %></h3><br/>
+<h3><%= link_to "3. Post Link", "/fblink?access_token=#{@access_token}" %><br/></h3>
+<h3><%= link_to "4. Update Status", "/fbstatus?access_token=#{@access_token}" %><br/></h3>
+

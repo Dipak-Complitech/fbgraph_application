@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %> <br/>
+  <b>Address:</b>
+  <%= @user.address %><br/>
+  <b>Photo:</b>
+  <% if @user.photo %>
+    <%= image_tag @user.photo.image.url(:small) %>
+  <% end %>
+</p>
+
+
+<%= link_to 'New', '/' %> 
+<%= link_to 'Index', users_path %>

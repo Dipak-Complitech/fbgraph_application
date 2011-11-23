@@ -1,0 +1,13 @@
+class TempPhotosController < ApplicationController
+  def create
+    logger.warn("==========#{params.inspect}===========")
+    temp = TempPhoto.create(params[:temp_photo])
+
+    if temp.valid?
+      render :xml => '<response msg="success"><temp_photo id="' + temp.id.to_s + '" thumb_url="' + temp.photo.url(:thumb) + '" /></response>'
+    else
+      render :xml => '<response msg="error" />'
+    end
+  end
+
+end

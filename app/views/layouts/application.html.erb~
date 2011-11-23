@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FbgraphApplication</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+
+          <% if !flash[:error].blank? || !flash[:notice].blank? -%>
+            <div id="system_alerts">
+              <% if flash[:error] -%>
+                <%= flash[:error] %>
+              <% else %>
+                <%= flash[:notice] %>
+              <% end %>
+            </div>
+            <script>
+              jQuery("#system_alerts").dialog({
+              open: function(){
+              jQuery("#system_alerts").show();
+              setTimeout('hide_system_alert()',10000)
+              },
+              modal : true
+              });
+            </script>
+          <% end -%>
+          
+          <%= yield %>
+
+</body>
+</html>

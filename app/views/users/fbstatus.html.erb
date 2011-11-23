@@ -1,0 +1,11 @@
+<%= form_for @user, :url => {:controller => 'users', :action => 'fbstatus' } do |f| %>
+  <div class="field">
+    Post Status : <br/>
+      <%= f.text_field :status %><br />
+       <%= f.submit "Post"%>
+  </div>
+<%= hidden_field_tag 'access_token', @access_token %>
+<% end %>
+
+
+

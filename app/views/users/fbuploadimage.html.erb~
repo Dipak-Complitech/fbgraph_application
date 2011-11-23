@@ -1,0 +1,11 @@
+<%= form_for @photo,:url => {:controller => 'users', :action => 'fbuploadimage' }, :html => { :multipart => true } do |f| %>
+  <div class="field">
+    Upload Photo  : <br/>
+       <%= f.file_field :image %><br />
+       <%= f.submit "Post"%>
+  </div>
+<%= hidden_field_tag 'access_token', @access_token %>
+<% end %>
+
+
+

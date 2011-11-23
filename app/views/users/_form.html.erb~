@@ -1,0 +1,10 @@
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    Post link : <br/>
+      <%= f.text_field :status %><br />
+       <%= f.submit "Post"%>
+  </div>
+      
+  <%= hidden_field_tag 'access', @access_token %>
+
+<% end %>
