@@ -1,3 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessor :link,:status 
+  has_many :photos
+  has_many :temp_images
+  attr_accessor :link,:status
+   
 end

@@ -6,8 +6,8 @@ gem 'rails', '3.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql'
-gem "fb_graph", "1.8.0"
 gem "paperclip", "~> 2.4"
+gem "fb_graph", "1.8.0"
 # Use unicorn as the web server
 # gem 'unicorn'
 

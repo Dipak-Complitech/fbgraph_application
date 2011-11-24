@@ -32,6 +32,10 @@ module FbgraphApplication
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+    %w(observers mailers middleware).each do |dir|
+      config.autoload_paths << "#{config.root}/app/#{dir}"
+    end
+    
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

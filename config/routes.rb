@@ -1,12 +1,13 @@
 FbgraphApplication::Application.routes.draw do
   resources :users
+  
    match 'fb_login' => 'users#fbgraph_connection' 
    match 'post_image' => 'users#postimage'
    match 'fblink' => 'users#fblink'
    match 'fbstatus' => 'users#fbstatus'
-   match 'fbalbum' => 'users#fbcreatealbum'
    match 'fbpostimage' => 'users#fbuploadimage'
-
+  resources :temp_images
+ 
    root :to => "users#index"
   
   
