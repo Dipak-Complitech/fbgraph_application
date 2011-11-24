@@ -1,0 +1,50 @@
+<%- session_key_name = Rails.application.config.session_options[:key] -%>
+<%= form_for TempImage.new, :html => { :multipart => true, :id => 'new_image',:action=>'create'  } do |f| %>
+  <div class="field">
+     <b> Upload Photo : </b> <%= f.file_field :image %><br />
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  $('#temp_image_image').uploadify({
+    uploader            : '/javascripts/uploadify/uploadify.swf',
+    script              : '/temp_images',
+    cancelImg   : '/javascripts/uploadify/cancel.png',
+    folder      : '/uploads',
+    multi       : true,
+    auto        : true,
+   'onComplete': function(event, queueID, fileObj, reponse, image) {
+        //jQuery("#queue_id_flag").val(queueID);
+	      jQuery("#uploadify_submit").ajaxSubmit({
+   	     type: 'POST',
+      	  dataType: 'xml',  // Tried to use json, but it's madness.  Don't do it.
+        	  timeout: 10000,
+        	  success: function(xml) {
+        			var response = $(xml).find('response').first();
+        			if( $(response).attr('msg') == 'success' ) {
+        				alert("Success");
+        			} else {
+          			alert('Error');
+        			}
+        		},
+        		error: function() {
+          		alert('ERROR!');
+        		}
+        	 });
+       },
+       
+    scriptData      : {
+        '_http_accept': 'application/javascript',
+        '_method': 'post',
+        '<%= session_key_name %>' : encodeURIComponent('<%= u cookies[session_key_name] %>'),
+        'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>'),
+        'user_id' : '<%= @usr.id %>' 
+      }
+       
+  });
+});
+</script>

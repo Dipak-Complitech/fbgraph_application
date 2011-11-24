@@ -1,0 +1,15 @@
+<% valid_data = ['image/jpeg', 'image/bmp', 'image/png', 'image/gif'] %>
+<% if @temp %>
+	<div id="custom-queue" style="float:right;"></div>
+	<div id="save-queue" style="float:right;">
+ 		<div class="porfollioimageholder">
+			<% @temp.each do |temp_file| %>
+  				<% if valid_data.include?("#{temp_file.image_content_type.to_s}") %>
+    				<div class="porfollioimagedv">
+			 				<%= image_tag temp_file.image.url, :size => "87x87" %>
+						</div>
+	 	 			<% end %>
+			<% end %>
+	  </div>       
+  </div>  
+ <% end %>		
