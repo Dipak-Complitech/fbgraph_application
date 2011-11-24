@@ -3,7 +3,6 @@
    <b> Create Album : </b> <%= f.text_field :album_name %><br />
    <b> Description : </b> <%= f.text_field :desc %><br />
    <%= render :partial => "users/temp_image", :locals => {:usr_id => @usr.id} %>
-   <%= render :partial => '/users/temp_files', :object => @temp %>
    <%= f.submit "Post"%>
   </div>
 
